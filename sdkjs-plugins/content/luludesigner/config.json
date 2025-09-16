@@ -1,10 +1,10 @@
 {
-    "name" : "Lulu space fill designer data",
+    "name" : "Designer data",
     "guid" : "asc.{73FBFE22-BC52-431E-991A-75A76D3A2618}",
 
     "variations" : [
         {
-            "description" : "Lulu space fill designer data",
+            "description" : "Designer data",
             "url"         : "index.html",
 
             "icons": [ "resources/light/icon.png", "resources/light/icon@2x.png" ],

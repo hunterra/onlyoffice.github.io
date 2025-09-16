@@ -24,7 +24,8 @@
 			window.Asc.plugin.callCommand(function() {
 				var oWorksheet = Api.GetActiveSheet();
 				var ActiveCell = oWorksheet.ActiveCell;
-				ActiveCell.AddComment(Asc.scope.textComment); // past comment in active cell
+				//ActiveCell.AddComment(Asc.scope.textComment); // past comment in active cell
+                ActiveCell.SetValue(Asc.scope.textComment);
 			}, true);
 		};
 	};

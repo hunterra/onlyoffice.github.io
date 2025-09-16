@@ -43,13 +43,65 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 		
     </head>
-    <body>
-		<div style="box-sizing: border-box; margin:5px; max-height: 250px; height: 250px; display: flex; flex-flow: column; justify-content: space-between;">
-			<label style='font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px;'>Данные дизайнера</label>
-			<textarea id="textareaIDComment" style="height:200px;"></textarea>
-			<div style="display: flex; justify-content: center;">
-				<button class="btn-text-default primary" style="margin:5px; width:100px;" id="buttonIDAddComment">Добавить</button>
-			</div>
-		</div>
-    </body>
+  <body>
+    <form id="myForm" onsubmit="handleFormSubmit(this)">
+      <fieldset>
+        <legend>Введите данные дизайнера</legend>
+          <div>
+            <label for="fio">ФИО:</label>
+            <input type="text" id="fio" name="fio">
+          </div>
+          <div>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone">
+          </div>
+          <div>
+            <label for="email">e-mail:</label>
+            <input type="text" id="email" name="email">
+          </div>
+          <div>
+            <label for="site">Ссылка на сайт/inst:</label>
+            <input type="text" id="site" name="site">
+          </div>
+          <div>
+            <p>
+                <label for="cond">
+                <span>Условия:</span>
+                </label>
+                <label>
+                  <input type="radio" name="cond_group" id="bonus10" value="Б10" checked/>
+                  Б10
+                </label>
+                <label>
+                  <input type="radio" name="cond_group" id="discount10" value="СК10"/>
+                  СК10
+                </label>
+                <label>
+                  <input type="radio" name="cond_group" id="bonus5" value="Б5 + СК5"/>
+                  Б5 + СК5
+                </label>
+                <label>
+                  <input type="radio" name="cond_group" id="other" value="Иное"/>
+                  Иное
+                </label>
+                <br/>
+                <input type="text" id="custom_cond" name="custom_cond"/>
+            </p>
+          </div>
+          <div>
+            <label for="sum">Сумма Б:</label>
+            <input type="text" id="sum" name="sum">
+          </div>
+          <br>
+          <div>      <input type="submit" value="Подтвердить" /></div>
+      </fieldset>
+
+    </form>
+    <script>
+      var custom_cond = document.getElementById("custom_cond");
+      custom_cond.onclick = function() {
+        document.getElementById("other").checked = true;
+      };
+    </script>
+ </body>
 </html>

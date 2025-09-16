@@ -1,7 +1,7 @@
 {
 	"name": "luludesigner plugin",
 	"description": "luludesigner plugin",
-	"version": "0.1",
+	"version": "0.2",
 	"manifest_version": 3,
 	"web_accessible_resources": [{
         "resources": [				

@@ -18,32 +18,17 @@
 (function(window, undefined) {
 
     window.Asc.plugin.init = function() {
-
-        /**
-        design = design + "Телефон: " + formObject.phone +"\n";
-        design = design + "e-mail: " + formObject.email +"\n";
-        design = design + "Ссылка на сайт/inst: " + formObject.site +"\n";
-        var conditions = formObject.cond_group;
-        if(conditions=="Иное"){
-            conditions=formObject.custom_cond;
-        }
-        design = design + "Условия: " + conditions +"\n";
-        design = design + "Сумма Б: " + formObject.sum +"\n";
-        */
         var fio = document.getElementById("fio");
         var phone = document.getElementById("phone");
         var email = document.getElementById("email");
         var site = document.getElementById("site");
-        //if(conditions=="Иное"){
-        //    conditions=document.getElementById("custom_cond");
-        //}
-        var conditions = document.querySelector('input[name="cond_group"]:checked');
-        if (conditions.value=="Иное") {
-            conditions = document.getElementById("custom_cond");
-        }
         var sum = document.getElementById("sum");
 
         document.getElementById("buttonAddDesign").onclick = function() {
+            var conditions = document.querySelector('input[name="cond_group"]:checked');
+            if (conditions.value=="Иное") {
+                conditions = document.getElementById("custom_cond");
+            }
             Asc.scope.textComment = "ФИО: " + fio.value +"\n";
             Asc.scope.textComment = Asc.scope.textComment + "Телефон: " + phone.value +"\n";
             Asc.scope.textComment = Asc.scope.textComment + "e-mail: " + email.value +"\n";

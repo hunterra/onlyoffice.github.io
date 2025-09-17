@@ -18,8 +18,8 @@
 (function(window, undefined) {
 
     window.Asc.plugin.init = function() {
-        var formObject = document.getElementById("myForm");
-        let design = "ФИО: " + formObject.fio +"\n";
+
+        /**
         design = design + "Телефон: " + formObject.phone +"\n";
         design = design + "e-mail: " + formObject.email +"\n";
         design = design + "Ссылка на сайт/inst: " + formObject.site +"\n";
@@ -29,9 +29,10 @@
         }
         design = design + "Условия: " + conditions +"\n";
         design = design + "Сумма Б: " + formObject.sum +"\n";
-
+        */
         document.getElementById("buttonAddDesign").onclick = function() {
-            Asc.scope.textComment = comment.value; // export variable to plugin scope
+            let design = "ФИО: " + document.getElementById("fio").value +"\n";
+            console.log(design);
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();
                 var ActiveCell = oWorksheet.ActiveCell;

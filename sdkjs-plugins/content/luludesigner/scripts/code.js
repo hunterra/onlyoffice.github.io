@@ -40,17 +40,10 @@
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();
                 var ActiveCell = oWorksheet.ActiveCell;
-                let cellContent = ActiveCell.GetContent(); // Get the content of the cell
-                // Now you can work with the cellContent, for example, to add text:
-                let paragraph = Api.CreateParagraph();
-                let run = Api.CreateRun();
-                run.AddText("This is just a sample text. ");
-                paragraph.AddElement(run);
-                run = Api.CreateRun();
-                run.SetFontFamily("Comic Sans MS");
-                run.AddText("This is a text run with the font family set to 'Comic Sans MS'.");
-                paragraph.AddElement(run);
-                cellContent.Push(paragraph);
+                ActiveCell.SetValue(Asc.scope.textComment);
+                let characters = ActiveCell.GetCharacters(0, 4);
+                let font = characters.GetFont();
+                font.SetBold(true);
             }, true);
         };
     };

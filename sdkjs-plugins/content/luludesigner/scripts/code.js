@@ -41,8 +41,9 @@
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
             Asc.scope.textComment = Asc.scope.textComment + "Сумма Б: " + sum.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
-            
-            console.log(Asc.scope.boldCharList);
+            Asc.scope.boldCharList.forEach(function(element, index, array) {
+                console.log(element);
+            });
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();
                 var ActiveCell = oWorksheet.ActiveCell;

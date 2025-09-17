@@ -29,18 +29,19 @@
             if (conditions.value=="Иное") {
                 conditions = document.getElementById("custom_cond");
             }
-            Asc.scope.textComment = "ФИО: " + fio.value +"\n";
             Asc.scope.boldCharList = [[0,4]];
-            Asc.scope.textComment = Asc.scope.textComment + "Телефон: " + phone.value +"\n";
+            Asc.scope.textComment = "ФИО: " + fio.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
-            Asc.scope.textComment = Asc.scope.textComment + "e-mail: " + email.value +"\n";
+            Asc.scope.textComment = Asc.scope.textComment + "Телефон: " + phone.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,8]);
-            Asc.scope.textComment = Asc.scope.textComment + "Ссылка на сайт/inst: " + site.value +"\n";
+            Asc.scope.textComment = Asc.scope.textComment + "e-mail: " + email.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,21]);
+            Asc.scope.textComment = Asc.scope.textComment + "Ссылка на сайт/inst: " + site.value +"\n";
+            Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
             Asc.scope.textComment = Asc.scope.textComment + "Условия: " + conditions.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
             Asc.scope.textComment = Asc.scope.textComment + "Сумма Б: " + sum.value +"\n";
-            Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
+            
             Asc.scope.boldCharList.forEach(function(element, index, array) {
                 console.log(element);
             });

@@ -30,13 +30,14 @@
         design = design + "Условия: " + conditions +"\n";
         design = design + "Сумма Б: " + formObject.sum +"\n";
         */
+        var fio = document.getElementById("fio");
         document.getElementById("buttonAddDesign").onclick = function() {
-            let design = "ФИО: " + document.getElementById("fio").value +"\n";
-            console.log(design);
+            Asc.scope.textComment = "ФИО: " + fio.value; // export variable to plugin scope
+            console.log(Asc.scope.textComment);
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();
                 var ActiveCell = oWorksheet.ActiveCell;
-                ActiveCell.SetValue(design);
+                ActiveCell.SetValue(Asc.scope.textComment);
             }, true);
         };
     };

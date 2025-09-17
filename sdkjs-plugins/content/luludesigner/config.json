@@ -1,10 +1,10 @@
 {
-    "name" : "Designer data",
+    "name" : "Данные дизайнера",
     "guid" : "asc.{73FBFE22-BC52-431E-991A-75A76D3A2618}",
 
     "variations" : [
         {
-            "description" : "Designer data",
+            "description" : "Данные дизайнера",
             "url"         : "index.html",
 
             "icons": [ "resources/light/icon.png", "resources/light/icon@2x.png" ],

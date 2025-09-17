@@ -40,7 +40,7 @@
         var conditions = document.querySelector('input[name="cond_group"]:checked');
         if (conditions.value=="Иное") {
             conditions = document.getElementById("custom_cond");
-        
+        }
         var sum = document.getElementById("sum");
 
         document.getElementById("buttonAddDesign").onclick = function() {

@@ -31,8 +31,22 @@
         design = design + "Сумма Б: " + formObject.sum +"\n";
         */
         var fio = document.getElementById("fio");
+        var phone = document.getElementById("phone");
+        var email = document.getElementById("email");
+        var site = document.getElementById("site");
+        var conditions = document.getElementById("cond_group");
+        if(conditions=="Иное"){
+            conditions=document.getElementById("custom_cond");
+        }
+        var sum = document.getElementById("sum");
+
         document.getElementById("buttonAddDesign").onclick = function() {
-            Asc.scope.textComment = "ФИО: " + fio.value; // export variable to plugin scope
+            Asc.scope.textComment = "ФИО: " + fio.value +"\n";
+            Asc.scope.textComment = Asc.scope.textComment + "e-mail: " + email.value +"\n";
+            Asc.scope.textComment = Asc.scope.textComment + "Ссылка на сайт/inst: " + site.value +"\n";
+            Asc.scope.textComment = Asc.scope.textComment + "Условия: " + conditions.value +"\n";
+            Asc.scope.textComment = Asc.scope.textComment + "Сумма Б: " + sum.value +"\n";
+            
             console.log(Asc.scope.textComment);
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();

@@ -30,7 +30,7 @@
                 conditions = document.getElementById("custom_cond");
             }
             Asc.scope.textComment = "ФИО: " + fio.value +"\n";
-            bold_char_list = [[0,4]];
+            var bold_char_list = [[0,4]];
             Asc.scope.textComment = Asc.scope.textComment + "Телефон: " + phone.value +"\n";
             bold_char_list.push([Asc.scope.textComment.length,9]);
             Asc.scope.textComment = Asc.scope.textComment + "e-mail: " + email.value +"\n";

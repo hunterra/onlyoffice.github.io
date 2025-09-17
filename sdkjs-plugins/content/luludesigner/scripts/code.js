@@ -30,17 +30,17 @@
                 conditions = document.getElementById("custom_cond");
             }
             Asc.scope.textComment = "ФИО: " + fio.value +"\n";
-            var bold_char_list = [[0,4]];
+            Asc.scope.boldCharList = [[0,4]];
             Asc.scope.textComment = Asc.scope.textComment + "Телефон: " + phone.value +"\n";
-            bold_char_list.push([Asc.scope.textComment.length,9]);
+            Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
             Asc.scope.textComment = Asc.scope.textComment + "e-mail: " + email.value +"\n";
-            bold_char_list.push([Asc.scope.textComment.length,8]);
+            Asc.scope.boldCharList.push([Asc.scope.textComment.length,8]);
             Asc.scope.textComment = Asc.scope.textComment + "Ссылка на сайт/inst: " + site.value +"\n";
-            bold_char_list.push([Asc.scope.textComment.length,21]);
+            Asc.scope.boldCharList.push([Asc.scope.textComment.length,21]);
             Asc.scope.textComment = Asc.scope.textComment + "Условия: " + conditions.value +"\n";
-            bold_char_list.push([Asc.scope.textComment.length,9]);
+            Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
             Asc.scope.textComment = Asc.scope.textComment + "Сумма Б: " + sum.value +"\n";
-            bold_char_list.push([Asc.scope.textComment.length,9]);
+            Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
             
             console.log(Asc.scope.textComment);
             window.Asc.plugin.callCommand(function() {
@@ -50,7 +50,7 @@
                 var characters = null;
                 var font = null;
                 
-                bold_char_list.forEach(function(element, index, array) {
+                Asc.scope.boldCharList.forEach(function(element, index, array) {
                     characters = ActiveCell.GetCharacters(element[0], element[1]);
                     font = characters.GetFont();
                     font.SetBold(true);

@@ -42,7 +42,7 @@
             Asc.scope.textComment = Asc.scope.textComment + "Сумма Б: " + sum.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,9]);
             
-            console.log(Asc.scope.textComment);
+            console.log(Asc.scope.boldCharList);
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();
                 var ActiveCell = oWorksheet.ActiveCell;

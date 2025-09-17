@@ -14,18 +14,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
-
+ */
 (function(window, undefined) {
 
     window.Asc.plugin.init = function() {
-        var comment = document.getElementById("textareaIDComment");
-        document.getElementById("buttonIDAddComment").onclick = function() {
+        var formObject = document.getElementById("myForm");
+        let design = "ФИО: " + formObject.fio +"\n";
+        design = design + "Телефон: " + formObject.phone +"\n";
+        design = design + "e-mail: " + formObject.email +"\n";
+        design = design + "Ссылка на сайт/inst: " + formObject.site +"\n";
+        var conditions = formObject.cond_group;
+        if(conditions=="Иное"){
+            conditions=formObject.custom_cond;
+        }
+        design = design + "Условия: " + conditions +"\n";
+        design = design + "Сумма Б: " + formObject.sum +"\n";
+
+        document.getElementById("buttonAddDesign").onclick = function() {
             Asc.scope.textComment = comment.value; // export variable to plugin scope
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();
                 var ActiveCell = oWorksheet.ActiveCell;
-                //ActiveCell.AddComment(Asc.scope.textComment); // past comment in active cell
-                ActiveCell.SetValue(Asc.scope.textComment);
+                ActiveCell.SetValue(design);
             }, true);
         };
     };
@@ -35,24 +45,3 @@
     };
 
 })(window, undefined);
- */
-function handleFormSubmit(formObject) {
-    let design = "ФИО: " + formObject.fio +"\n";
-    design = design + "Телефон: " + formObject.phone +"\n";
-    design = design + "e-mail: " + formObject.email +"\n";
-    design = design + "Ссылка на сайт/inst: " + formObject.site +"\n";
-    var conditions = formObject.cond_group;
-    if(conditions=="Иное"){
-        conditions=formObject.custom_cond;
-    }
-    design = design + "Условия: " + conditions +"\n";
-    design = design + "Сумма Б: " + formObject.sum +"\n";
-    
-    window.Asc.plugin.init = function() {
-            window.Asc.plugin.callCommand(function() {
-                    var oWorksheet = Api.GetActiveSheet();
-                    var ActiveCell = oWorksheet.ActiveCell;
-                    ActiveCell.SetValue(design);
-            }, true);
-    };
- }

@@ -61,8 +61,8 @@
             Asc.scope.textComment = Asc.scope.textComment + "Озвученная стоимость доставки: " + price.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,31]);
             Asc.scope.textComment = Asc.scope.textComment + "Номер черновика Деловых линий: " + dlDraft.value +"\n";
-            Asc.scope.boldCharList.push([Asc.scope.textComment.length,39]);
-            if(delivery.value=="true"){
+            if(delivery.checked){
+                Asc.scope.boldCharList.push([Asc.scope.textComment.length,39]);
                 Asc.scope.textComment = Asc.scope.textComment + "Доставка оплачена при оформлении заказа";
             }
             window.Asc.plugin.callCommand(function() {

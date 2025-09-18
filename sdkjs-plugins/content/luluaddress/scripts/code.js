@@ -36,7 +36,7 @@
             }
             var delivery = document.getElementById("delivery");
             Asc.scope.boldCharList = [[0,9]];
-            Asc.scope.textComment = Asc.scope.textComment + "Телефон: " + phone.value +"\n";
+            Asc.scope.textComment = "Телефон: " + phone.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,7]);
             Asc.scope.textComment = Asc.scope.textComment + "Город: " + city.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,7]);
@@ -56,7 +56,7 @@
                     Asc.scope.textComment = Asc.scope.textComment + "Ручной пронос: Нет" +"\n";
                 }
                 else{
-                    Asc.scope.textComment = Asc.scope.textComment + "Ручной пронос: Да, "+ hand_meters +" м\n";
+                    Asc.scope.textComment = Asc.scope.textComment + "Ручной пронос: Да, "+ hand_meters.value +" м\n";
                 }
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,31]);
             Asc.scope.textComment = Asc.scope.textComment + "Озвученная стоимость доставки: " + price.value +"\n";

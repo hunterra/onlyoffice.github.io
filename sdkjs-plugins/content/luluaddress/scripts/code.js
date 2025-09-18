@@ -31,9 +31,8 @@
         document.getElementById("buttonAddAddress").onclick = function() {
             var lift = document.querySelector('input[name="lift_group"]:checked');
             var handcaring = document.querySelector('input[name="hand_group"]:checked');
-            if (handcaring.value=="true") {
-                var hand_meters = document.getElementById("hand_meters");
-            }
+            console.log(handcaring.value)
+            var hand_meters = document.getElementById("hand_meters");
             var delivery = document.getElementById("delivery");
             Asc.scope.boldCharList = [[0,9]];
             Asc.scope.textComment = "Телефон: " + phone.value +"\n";
@@ -52,7 +51,7 @@
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,15]);
             Asc.scope.textComment = Asc.scope.textComment + "Грузовой лифт: " + lift.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,15]);
-            if(handcaring=="false"){
+            if(handcaring.value=="false"){
                     Asc.scope.textComment = Asc.scope.textComment + "Ручной пронос: Нет" +"\n";
                 }
                 else{
@@ -63,7 +62,7 @@
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,31]);
             Asc.scope.textComment = Asc.scope.textComment + "Номер черновика Деловых линий: " + dlDraft.value +"\n";
             Asc.scope.boldCharList.push([Asc.scope.textComment.length,39]);
-            if(delivery=="true"){
+            if(delivery.value=="true"){
                 Asc.scope.textComment = Asc.scope.textComment + "Доставка оплачена при оформлении заказа";
             }
             window.Asc.plugin.callCommand(function() {
@@ -83,7 +82,8 @@
         };
     };
     
-    window.Asc.plugin.button = function() {
+    window.Asc.plugin.button = function(id) {
+        console.log(id)
         this.executeCommand("close", "");
     };
 

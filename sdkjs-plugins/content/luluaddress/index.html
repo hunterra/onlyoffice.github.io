@@ -1,0 +1,181 @@
+<!--
+ (c) Copyright Ascensio System SIA 2020
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<title>Введите данные дизайнера</title>
+        
+<style>
+label,p {
+  font:
+    0.8rem 'Fira Sans',
+    sans-serif;
+}
+
+legend {
+  font: bold 1.1rem 'Fira Sans', sans-serif;
+}
+
+input[type="text"] {
+  margin: 0.1rem;
+  width: 100%;
+
+}
+
+#hand_meters {
+  margin: 0.1rem;
+  width: 120px;
+
+}
+
+#back_button {
+  margin: 0.2rem;
+
+}
+input[type="submit"] {
+  margin: 0.2rem;
+
+}
+
+#ral-ncs-code {
+  margin: 0.2rem;
+}
+
+#p_legend {
+  font: bold 1.2rem 'Fira Sans', sans-serif;
+}
+
+fieldset {
+   border:0 none;
+   
+}
+
+ul.hr {
+ margin: 0; /* Обнуляем значение отступов */
+ padding: 4px; /* Значение полей */
+ 
+}
+ul.hr li {
+  display: inline-block; /* Отображать как строчный элемент */
+  vertical-align: top;
+  width: 450px;
+}
+
+.text-container {
+
+margin-left: 20px;
+
+}
+
+</style>
+
+
+		<script type="text/javascript" src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.js"></script>
+		<script type="text/javascript" src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins-ui.js"></script>
+		<link rel="stylesheet" href="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.css">
+		<script type="text/javascript" src="scripts/code.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		
+    </head>
+  <body>
+    <form id="myForm" onsubmit="handleFormSubmit(this)">
+      <fieldset>
+        <legend>Введите данные для доставки</legend>
+          <div>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone">
+          </div>
+          <div>
+            <label for="city">Город:</label>
+            <input type="text" id="city" name="city">
+          </div>
+          <div>
+            <label for="street">Улица:</label>
+            <input type="text" id="street" name="street">
+          </div>
+          <div>
+            <label for="house">Дом:</label>
+            <input type="text" id="house" name="house">
+          </div>
+          <div>
+            <label for="apartment">Квартира:</label>
+            <input type="text" id="apartment" name="apartment">
+          </div>
+          <div>
+            <label for="floor">Этаж:</label>
+            <input type="text" id="floor" name="floor">
+          </div>
+          <div>
+            <label for="entrance">Подъезд:</label>
+            <input type="text" id="entrance" name="entrance">
+          </div>
+          <div>
+            <p>
+                <label for="lift">
+                <span>Грузовой лифт:</span>
+                
+                <label>
+                  <input type="radio" name="lift_group" id="true" value="Есть" checked/>
+                  Есть
+                </label>
+                <label>
+                  <input type="radio" name="lift_group" id="false" value="Нет"/>
+                  Нет
+                </label>
+            </p>
+          </div>
+          <div>
+            <p>
+                <label for="hand-caring">
+                <span>Ручной пронос до подъезда или через паркинг:</span>
+                
+                <label>
+                  <input type="radio" name="hand_group" id="hand-false" value="false" checked/>
+                  Нет
+                </label>
+                <label>
+                  <input type="radio" name="hand_group" id="hand-true" value="true"/>
+                  Да
+                </label>
+                <input type="text" id="hand_meters" name="hand_meters" placeholder="количество метров" width="50px">
+            </p>
+          </div>
+          <div>
+            <label for="price">Озвученная стоимость доставки:</label>
+            <input type="text" id="price" name="price">
+          </div>
+          <div>
+            <label for="dlDraft">Номер черновика Деловых линий:</label>
+            <input type="text" id="dlDraft" name="dlDraft">
+          </div>
+          <div>
+            <input type="checkbox" id="delivery" name="delivery" value="true" />
+            <label for="delivery">Доставка оплачена при оформлении заказа </label>
+          </div>
+      </fieldset>
+      <button class="btn-text-default primary" id="buttonAddAddress">Подтвердить</button>
+
+    </form>
+    <script>
+      var hand_meters = document.getElementById("hand_meters");
+      hand_meters.onclick = function() {
+        document.getElementById("hand-true").checked = true;
+      };
+    </script>
+  </body>
+</html>

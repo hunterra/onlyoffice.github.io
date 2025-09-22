@@ -61,8 +61,15 @@
 
             "isUpdateOleOnResize" : false,
 
-            "buttons"         : []
-            
+
+            "buttons": [
+                { 
+                    "text": "Cancel",
+                    "primary": false,
+                    "isviewer": false,
+                }
+            ]
+
         }
     ]
 }

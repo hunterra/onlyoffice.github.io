@@ -31,7 +31,9 @@
     
     window.Asc.plugin.button = function(id) {
         console.log(id);
-        //this.executeCommand("close", "");
+        if (id==-1){
+            this.executeCommand("close", "");
+        }
     };
 
 })(window, undefined);

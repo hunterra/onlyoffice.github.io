@@ -19,7 +19,7 @@
 
     window.Asc.plugin.init = function() {
         //var comment = document.getElementById("textareaIDComment");
-        document.getElementById("buttonIDAddComment").onclick = function() {
+        document.getElementById("buttonAddMaterial").onclick = function() {
             //Asc.scope.textComment = comment.value; // export variable to plugin scope
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();

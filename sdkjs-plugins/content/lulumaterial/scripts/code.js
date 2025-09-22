@@ -24,14 +24,16 @@
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();
                 var ActiveCell = oWorksheet.ActiveCell;
-                //ActiveCell.AddComment(Asc.scope.textComment); // past comment in active cell
+                ActiveCell.SetValue("123");
             }, true);
         };
     };
     
     window.Asc.plugin.button = function(id) {
         console.log(id);
-        this.executeCommand("close", "");
+        if (id==-1){
+            this.executeCommand("close", "");
+        }
     };
 
 })(window, undefined);

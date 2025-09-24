@@ -19,13 +19,15 @@
         var porolonDiv = document.getElementById("div-porolon");
         var metalDiv = document.getElementById("div-metal");
         
+        var exclude_array = ["surface", "material", "color"];
+        
         document.getElementById("buttonAddMaterial").onclick = function() {
             console.log("button clicked");
             if(status=="general"){
                 console.log("inside general");
                 var inp_elements = document.getElementsByTagName("input");
                 for (let inp in inp_elements){
-                    if (inp_elements[inp].checked){
+                    if (inp_elements[inp].checked && !exclude_array.includes(inp_elements[inp].name)){
                         parts_dict[inp_elements[inp].name]=[];
                     }
                 }
@@ -42,6 +44,7 @@
                         parts_left=parts_left-1;
                     }
                 }
+                status="surface";
             }
             else{
                 console.log("no parts left")

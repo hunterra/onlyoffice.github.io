@@ -19,6 +19,7 @@
                     var part=Object.keys(parts_dict)[0]
                     $(function(){$("#includedContent").load("form-configuration.html");});
                     if (part=="столешница"){
+                        console.log("stoleshnica part");
                         $(function(){$("#field_material").load("select-material-tree-stol.html");});
                     }
                     document.getElementById("p_legend").innerHTML="Конфигурация элемента \""+ part + "\"";

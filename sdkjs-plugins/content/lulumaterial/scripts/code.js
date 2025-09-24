@@ -33,11 +33,16 @@
             if(parts_left>0){
                 for (let part in parts_dict){
                     if (parts_dict[part].length==0){
+                        console.log(part)
+                        document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part +"\"";
                         partSelectionForm.style.display = 'none';
                         partConfigurationForm.style.display = 'block';
                         parts_left=parts_left-1;
                     }
                 }
+            }
+            else{
+                console.log("no parts left")
             }
 
             }

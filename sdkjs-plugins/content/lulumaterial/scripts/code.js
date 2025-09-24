@@ -22,6 +22,7 @@
         document.getElementById("buttonAddMaterial").onclick = function() {
             console.log("button clicked");
             if(status=="general"){
+                console.log("inside general");
                 var inp_elements = document.getElementsByTagName("input");
                 for (let inp in inp_elements){
                     if (inp_elements[inp].checked){
@@ -29,6 +30,7 @@
                     }
                 }
                 parts_left=Object.keys(parts_dict).length;
+                console.log(parts_left);
             }
             if(parts_left>0){
                 for (let part in parts_dict){

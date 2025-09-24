@@ -35,15 +35,16 @@
                 console.log(parts_left);
             }
             if(parts_left>0){
-                for (let part in parts_dict){
+                let part=parts_dict[0];
                     if (parts_dict[part].length==0){
                         console.log(part)
                         document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part +"\"";
                         partSelectionForm.style.display = 'none';
                         partConfigurationForm.style.display = 'block';
                         parts_left=parts_left-1;
+                        delete parts_dict.part;
                     }
-                }
+                    
                 status="surface";
             }
             else{

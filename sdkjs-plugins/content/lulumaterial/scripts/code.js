@@ -24,7 +24,6 @@
         document.getElementById("buttonAddMaterial").onclick = function() {
             console.log("button clicked");
             if(status=="general"){
-                console.log("inside general");
                 var inp_elements = document.getElementsByTagName("input");
                 for (let inp in inp_elements){
                     if (inp_elements[inp].checked && !exclude_array.includes(inp_elements[inp].name)){
@@ -36,14 +35,13 @@
             }
             if(parts_left>0){
                 let part=parts_dict[0];
-                    if (parts_dict[part].length==0){
                         console.log(part)
                         document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part +"\"";
                         partSelectionForm.style.display = 'none';
                         partConfigurationForm.style.display = 'block';
                         parts_left=parts_left-1;
                         delete parts_dict.part;
-                    }
+                    
                     
                 status="surface";
             }

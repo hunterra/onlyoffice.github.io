@@ -1,0 +1,100 @@
+<form id="myForm" onsubmit="handleFormRadio(this)">
+    <p id="p_legend"/>
+    <ul class="hr">
+        <li>
+            <fieldset>
+                <legend>Выберите тип поверхности</legend>
+                <div>
+                    <input type="radio" id="tree" name="surface" value="Поверхности со структурой дерева" checked/>
+                    <label for="tree">Поверхности со структурой дерева</label>
+                </div>
+                <div>
+                    <input type="radio" id="smooth" name="surface" value="Поверхности гладкие"/>
+                    <label for="smooth">Поверхности гладкие</label>
+                </div>
+                <div>
+                    <input type="radio" id="notapplicable" name="surface" value="Поверхности не выбираются"/>
+                    <label for="notapplicable">Поверхности не выбираются <br/>(если деталь из металла, стекла или ткани)</label>
+                </div>
+            </fieldset>
+            <fieldset id="field_material">
+                <legend>Выберите материал</legend>
+                <div>
+                    <input type="radio" id="mdf" name="material" value="Плита МДФ, покрытая шпоном дуба" checked/>
+                    <label for="mdf">Плита МДФ, покрытая шпоном дуба</label>
+                </div>
+                <div>
+                    <input type="radio" id="massiv" name="material" value="Массив дуба"/>
+                    <label for="massiv">Массив дуба</label>
+                </div>
+                <div>
+                    <input type="radio" id="mdf_dub" name="material" value="Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба"/>
+                    <label for="mdf_dub">Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба</label>
+                    <br/>
+                    <label for="mdf_dub" class="text-container">(шпон 1,5 мм)</label>
+                </div>
+            </fieldset>
+        </li>
+        <li>
+            <fieldset>
+                <legend>Выберите цвет</legend>
+                <div>
+                    <input type="radio" id="nat-dub" name="color" value="Натуральный дуб" checked/>
+                    <label for="nat-dub">Натуральный дуб</label>
+                </div>
+                <div>
+                    <input type="radio" id="lit-dub" name="color" value="Осветлённый дуб"/>
+                    <label for="lit-dub">Осветлённый дуб</label>
+                </div>
+                <div>
+                    <input type="radio" id="w-dub" name="color" value="Белёный дуб"/>
+                    <label for="w-dub">Белёный дуб</label>
+                </div>
+                <div>
+                    <input type="radio" id="lit-oreh" name="color" value="Осветлённый пепельный орех"/>
+                    <label for="lit-oreh">Осветлённый пепельный орех</label>
+                </div>
+                <div>
+                    <input type="radio" id="oreh" name="color" value="Пепельный орех"/>
+                    <label for="oreh">Пепельный орех</label>
+                </div>
+                <div>
+                    <input type="radio" id="w-oreh" name="color" value="Светлый орех"/>
+                    <label for="w-oreh">Светлый орех</label>
+                </div>
+                <div>
+                    <input type="radio" id="b-oreh" name="color" value="Тёмный орех"/>
+                    <label for="b-oreh">Тёмный орех</label>
+                </div>
+                <div>
+                    <input type="radio" id="RAL9005" name="color" value="Чёрный RAL9005"/>
+                    <label for="RAL9005">Чёрный RAL9005</label>
+                </div>
+                <div>
+                    <input type="radio" id="RAL9010" name="color" value="Белый RAL9010"/>
+                    <label for="RAL9010">Белый RAL9010</label>
+                </div>
+                <div>
+                    <input type="radio" id="RAL9003" name="color" value="Белый RAL9003 (холодный белый)"/>
+                    <label for="RAL9003">Белый RAL9003 (холодный белый)</label>
+                </div>
+                <div>
+                    <input type="radio" id="custom-code" name="color" value="custom-code"/>
+                    <label for="custom-code">Указать код цвета вручную (RAL или NCS)</label>
+                    <br/>
+                    <input type="text" id="ral-ncs-code" name="ral-ncs-code"/>
+                </div>
+                <div>
+                    <input type="radio" id="b-metal" name="color" value="Чёрный (для металла)"/>
+                    <label for="b-metal">Чёрный (для металла)</label>
+                </div>
+                <div>
+                    <input type="radio" id="w-metal" name="color" value="Белый (для металла)"/>
+                    <label for="w-metal">Белый (для металла)</label>
+                </div>
+            </fieldset>
+        </li>
+    </ul>
+    <input type="submit" value="Далее"/>
+    <button name="back_button" id="back_button" onclick="buttonFunction()">В начало</button>
+</form>

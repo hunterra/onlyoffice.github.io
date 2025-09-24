@@ -1,30 +1,28 @@
-/**
- *
- * (c) Copyright Ascensio System SIA 2020
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
+var parts_dict = {};
+var status="general";
+var parts_left = 0;
+
 (function(window, undefined) {
 
     window.Asc.plugin.init = function() {
-        //var comment = document.getElementById("textareaIDComment");
-        document.getElementById("buttonAddMaterial").onclick = function() {
-            //Asc.scope.textComment = comment.value; // export variable to plugin scope
+        document.getElementById("myForm").onsubmit = function(formObject) {
+            if(status=="general"){
+                var inp_elements = document.getElementsByTagName("input");
+                for (let inp of inp_elements){
+                    if (inp_elements[inp].checked){
+                        parts_dict[inp_elements[inp].name]=[];
+                    }
+                }
+            }
+            Asc.scope.parts=''
+            for (let part of parts_dict){
+                Asc.scope.parts =  Asc.scope.parts + part + " ";
+            }
+
             window.Asc.plugin.callCommand(function() {
                 var oWorksheet = Api.GetActiveSheet();
                 var ActiveCell = oWorksheet.ActiveCell;
-                ActiveCell.SetValue("123");
+                ActiveCell.SetValue(Asc.scope.parts);
             }, true);
         };
     };

@@ -1,26 +1,26 @@
+var parts_dict = {};
+var status="general";
+var parts_left = 0;
+
+var partSelectionForm = document.getElementById("partSelection");
+var partConfigurationForm = document.getElementById("partConfiguration");
+
+var mdfDiv = document.getElementById("div-mdf");
+var massivDiv = document.getElementById("div-massiv");
+var mdfDubDiv = document.getElementById("div-mdf-dub");
+var dopStolMaterialDiv = document.getElementById("div-dop-stol-material");
+
+var massivBukaDiv = document.getElementById("div-massiv-buka");
+var mdfEmalDiv = document.getElementById("div-mdf-emal");
+var mdfLamDiv = document.getElementById("div-mdf-lam");
+
+var porolonDiv = document.getElementById("div-porolon");
+var metalDiv = document.getElementById("div-metal");
+
+var exclude_array = ["surface", "material", "color"];
+
 (function(window, undefined) {
     window.Asc.plugin.init = function() {
-        var parts_dict = {};
-        var status="general";
-        var parts_left = 0;
-        
-        var partSelectionForm = document.getElementById("partSelection");
-        var partConfigurationForm = document.getElementById("partConfiguration");
-
-        var mdfDiv = document.getElementById("div-mdf");
-        var massivDiv = document.getElementById("div-massiv");
-        var mdfDubDiv = document.getElementById("div-mdf-dub");
-        var dopStolMaterialDiv = document.getElementById("div-dop-stol-material");
-        
-        var massivBukaDiv = document.getElementById("div-massiv-buka");
-        var mdfEmalDiv = document.getElementById("div-mdf-emal");
-        var mdfLamDiv = document.getElementById("div-mdf-lam");
-        
-        var porolonDiv = document.getElementById("div-porolon");
-        var metalDiv = document.getElementById("div-metal");
-        
-        var exclude_array = ["surface", "material", "color"];
-        
         document.getElementById("buttonAddMaterial").onclick = function() {
             console.log("button clicked");
             if(status=="general"){

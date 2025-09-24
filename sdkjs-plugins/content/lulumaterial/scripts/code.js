@@ -1,9 +1,9 @@
-var parts_dict = {};
-var status="general";
-var parts_left = 0;
-
 (function(window, undefined) {
     window.Asc.plugin.init = function() {
+        var parts_dict = {};
+        var status="general";
+        var parts_left = 0;
+        
         var partSelectionForm = document.getElementById("partSelection");
         var partConfigurationForm = document.getElementById("partConfiguration");
 

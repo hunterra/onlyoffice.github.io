@@ -3,6 +3,22 @@
         var parts_dict = {};
         var status="general";
         var parts_left = 0;
+        
+        var partSelectionForm = document.getElementById("partSelection");
+        var partConfigurationForm = document.getElementById("partConfiguration");
+
+        var mdfDiv = document.getElementById("div-mdf");
+        var massivDiv = document.getElementById("div-massiv");
+        var mdfDubDiv = document.getElementById("div-mdf-dub");
+        var dopStolMaterialDiv = document.getElementById("div-dop-stol-material");
+        
+        var massivBukaDiv = document.getElementById("div-massiv-buka");
+        var mdfEmalDiv = document.getElementById("div-mdf-emal");
+        var mdfLamDiv = document.getElementById("div-mdf-lam");
+        
+        var porolonDiv = document.getElementById("div-porolon");
+        var metalDiv = document.getElementById("div-metal");
+        
         document.getElementById("buttonAddMaterial").onclick = function() {
             console.log("button clicked");
             if(status=="general"){
@@ -12,60 +28,23 @@
                         parts_dict[inp_elements[inp].name]=[];
                     }
                 }
-                
-                parts_left=Object.keys(parts_dict).length
-                if (parts_left>0){
-                    console.log(parts_left)
-                    var part=Object.keys(parts_dict)[0]
-                    $(function(){$("#includedContent").load("form-configuration.html");});
-                    if (part=="столешница"){
-                        console.log("stoleshnica part");
-                        $(function(){$("#field_material").load("select-material-tree-stol.html");});
+                parts_left=Object.keys(parts_dict).length;
+            }
+            if(parts_left>0){
+                for (let part in parts_dict){
+                    if (parts_dict[part].length==0){
+                        partSelectionForm.style.display = 'none';
+                        partConfigurationForm.style.display = 'block';
+                        parts_left=parts_left-1;
                     }
-                    document.getElementById("p_legend").innerHTML="Конфигурация элемента \""+ part + "\"";
-                    var div = document.createElement("div");
-                    div.setAttribute("name", part);
-                    div.setAttribute("id", "appendedDiv");
-                    document.getElementById("myForm").appendChild(div);
-                    
-                    var rad = document.getElementsByName("surface");
-                    rad[0].onclick = function() {
-                        if (part=="столешница"){
-                            $(function(){$("#field_material").load("select-material-tree-stol.html");});
-                        }
-                        else{
-                            $(function(){$("#field_material").load("select-material-tree-not-stol.html");});
-                        }
-                    };
-                    rad[1].onclick = function() {
-                        $(function(){$("#field_material").load("select-material-smooth.html");});
-                    };
-                    rad[2].onclick = function() {
-                        $(function(){$("#field_material").load("select-material-other.html");});
-                    };
-                    var custom_color_inp = document.getElementById("ral-ncs-code");
-                    custom_color_inp.onclick = function() {
-                        document.getElementById("custom-code").checked = true;
-                    };
-                    status="surface";
                 }
-                else {
-                    Asc.scope.parts=''
-                    for (let part in parts_dict){
-                        Asc.scope.parts =  Asc.scope.parts + part + " ";
-                    }
-        
-                    window.Asc.plugin.callCommand(function() {
-                        var oWorksheet = Api.GetActiveSheet();
-                        var ActiveCell = oWorksheet.ActiveCell;
-                        ActiveCell.SetValue(Asc.scope.parts);
-                    }, true);
-                }
+            }
+
             }
             
 
         };
-    };
+
     
     window.Asc.plugin.button = function(id) {
         console.log(id);

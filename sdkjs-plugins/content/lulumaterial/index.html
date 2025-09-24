@@ -87,16 +87,274 @@
     <script type="text/javascript" src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins-ui.js"></script>
     <link rel="stylesheet" href="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script> 
-        $(function(){
-            $("#includedContent").load("form-general-parts.html"); 
-        });
-    </script> 
     <script type="text/javascript" src="scripts/code.js"></script>
     
     </head>
   <body>
-        <div id="includedContent"></div>
-        <button class="btn-text-default primary" id="buttonAddMaterial">Далее</button>
+    <form id="partSelection" style="display: block;"">
+      <ul class="hr">
+      <li>
+      <fieldset>
+        <legend>Выберите общие детали</legend>
+        <div>
+          <input type="checkbox" id="carcas" name="каркас" />
+          <label for="carcas">Каркас</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="fasad" name="фасады" />
+          <label for="fasad">Фасады</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="noga" name="ножки" />
+          <label for="noga">Ножки</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="osn" name="основание" />
+          <label for="osn">Основание</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="stol" name="столешница" />
+          <label for="stol">Столешница</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="zstena" name="задняя стенка" />
+          <label for="zstena">Задняя стенка</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="yashik" name="внутренние ящики" />
+          <label for="yashik">Внутренние ящики</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="polka" name="полки" />
+          <label for="polka">Полки</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="ruchka" name="ручки" />
+          <label for="ruchka">Ручки (если они из дерева)</label>
+        </div>
+        <div>
+          <input type="checkbox" id="podstol" name="Подстолье" />
+          <label for="podstol">Подстолье</label>
+        </div>
+      </fieldset>
+      </li>
+      <li>
+      <fieldset>
+        <legend>Выберите частные детали</legend>
+        <div>
+          <input type="checkbox" id="rama_z" name="рама зеркала" />
+          <label for="rama_z">Рама зеркала</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="rama_f" name="рама фасадов витрины" />
+          <label for="rama_f">Рама фасадов витрины</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="krishka_v" name="верхняя крышка" />
+          <label for="krishka_v">Верхняя крышка</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="krishka_n" name="нижняя крышка" />
+          <label for="krishka_n">Нижняя крышка</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="int_carcas_vesta" name="внутренний каркас Vesta" />
+          <label for="int_carcas_vesta">Внутренний каркас Vesta</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="out_carcas_vesta" name="внешний каркас Vesta" />
+          <label for="out_carcas_vesta">Внешний каркас Vesta</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="podstol_lars" name="подстолье LARS" />
+          <label for="podstol_lars">Подстолье LARS</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="vstavki_podstol" name="вставки на подстолье LARS" />
+          <label for="vstavki_podstol">Вставки на подстолье LARS</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="krug_napol" name="круг напольный (для стола LARS)" />
+          <label for="krug_napol">Круг напольный (для стола LARS)</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="sidushka" name="сидушка" />
+          <label for="sidushka">Сидушка</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="podushka" name="подушка" />
+          <label for="podushka">Подушка</label>
+        </div>
+        
+        <div>
+          <input type="checkbox" id="vlagostoikiy-element" name="Влагостойкий зеркальный элемент" />
+          <label for="vlagostoikiy-element">Влагостойкий зеркальный элемент</label>
+        </div>
+        <div>
+          <input type="checkbox" id="bokoviny" name="Боковины" />
+          <label for="bokoviny">Боковины</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tsargi" name="Царги" />
+          <label for="tsargi">Царги</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tsokol" name="Цоколь" />
+          <label for="tsokol">Цоколь</label>
+        </div>
+        <div>
+          <input type="checkbox" id="nadstol" name="Надстройка над столешницей" />
+          <label for="nadstol">Надстройка над столешницей</label>
+        </div>
+        <div>
+          <input type="checkbox" id="decpanel" name="Декоративная панель" />
+          <label for="decpanel">Декоративная панель</label>
+        </div>
+      </fieldset>
+      </li>
+      </ul>
+    </form>
+    <form id="partConfiguration" style="display: none;">
+    <p id="p_legend"/>
+    <ul class="hr">
+        <li>
+            <fieldset>
+                <legend>Выберите тип поверхности</legend>
+                <div>
+                    <input type="radio" id="tree" name="surface" value="Поверхности со структурой дерева" checked/>
+                    <label for="tree">Поверхности со структурой дерева</label>
+                </div>
+                <div>
+                    <input type="radio" id="smooth" name="surface" value="Поверхности гладкие"/>
+                    <label for="smooth">Поверхности гладкие</label>
+                </div>
+                <div>
+                    <input type="radio" id="notapplicable" name="surface" value="Поверхности не выбираются"/>
+                    <label for="notapplicable">Поверхности не выбираются <br/>(если деталь из металла, стекла или ткани)</label>
+                </div>
+            </fieldset>
+            <fieldset id="field_material">
+                <legend>Выберите материал</legend>
+                <div id="div-mdf" style="display: block;">
+                    <input type="radio" id="mdf" name="material" value="Плита МДФ, покрытая шпоном дуба" checked/>
+                    <label for="mdf">Плита МДФ, покрытая шпоном дуба</label>
+                </div>
+                <div id="div-massiv" style="display: block;">
+                    <input type="radio" id="massiv" name="material" value="Массив дуба"/>
+                    <label for="massiv">Массив дуба</label>
+                </div>
+                <div id="div-mdf-dub" style="display: block;">
+                    <input type="radio" id="mdf_dub" name="material" value="Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба"/>
+                    <label for="mdf_dub">Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба</label>
+                    <br/>
+                    <label for="mdf_dub" class="text-container">(шпон 1,5 мм)</label>
+                </div>
+                <div id="div-dop-stol-material" style="display: none;">
+                    <input type="radio" id="mdf_shpon" name="material" value="Плита МДФ, покрытая шпоном дуба (шпон 0,6 мм)"/>
+                    <label for="mdf_shpon">Плита МДФ, покрытая шпоном дуба (шпон 0,6 мм)</label>
+                </div>
+                <div id="div-massiv-buka" style="display: none;">
+                    <input type="radio" id="massiv-buka" name="material" value="Массив бука"/>
+                    <label for="massiv-buka">Массив бука</label>
+                </div>
+                <div id="div-mdf-emal" style="display: none;">
+                    <input type="radio" id="mdf-emal" name="material" value="Плита МДФ, покрытая эмалью"/>
+                    <label for="mdf-emal">Плита МДФ, покрытая эмалью</label>
+                </div>
+                <div id="div-mdf-lam" style="display: none;">
+                    <input type="radio" id="mdf-lam" name="material" value="Ламинированная плита МДФ"/>
+                    <label for="mdf-lam">Ламинированная плита МДФ</label>
+                </div>
+                <div id="div-porolon" style="display: none;">
+                    <input type="radio" id="porolon" name="material" value="Поролон высокой плотности, ткань обивочная"/>
+                    <label for="porolon">Поролон высокой плотности, ткань обивочная</label>
+                </div>
+                <div id="div-metal" style="display: none;">
+                    <input type="radio" id="metal" name="material" value="Металл"/>
+                    <label for="metal">Металл</label>
+                </div>
+            </fieldset>
+        </li>
+        <li>
+            <fieldset>
+                <legend>Выберите цвет</legend>
+                <div>
+                    <input type="radio" id="nat-dub" name="color" value="Натуральный дуб" checked/>
+                    <label for="nat-dub">Натуральный дуб</label>
+                </div>
+                <div>
+                    <input type="radio" id="lit-dub" name="color" value="Осветлённый дуб"/>
+                    <label for="lit-dub">Осветлённый дуб</label>
+                </div>
+                <div>
+                    <input type="radio" id="w-dub" name="color" value="Белёный дуб"/>
+                    <label for="w-dub">Белёный дуб</label>
+                </div>
+                <div>
+                    <input type="radio" id="lit-oreh" name="color" value="Осветлённый пепельный орех"/>
+                    <label for="lit-oreh">Осветлённый пепельный орех</label>
+                </div>
+                <div>
+                    <input type="radio" id="oreh" name="color" value="Пепельный орех"/>
+                    <label for="oreh">Пепельный орех</label>
+                </div>
+                <div>
+                    <input type="radio" id="w-oreh" name="color" value="Светлый орех"/>
+                    <label for="w-oreh">Светлый орех</label>
+                </div>
+                <div>
+                    <input type="radio" id="b-oreh" name="color" value="Тёмный орех"/>
+                    <label for="b-oreh">Тёмный орех</label>
+                </div>
+                <div>
+                    <input type="radio" id="RAL9005" name="color" value="Чёрный RAL9005"/>
+                    <label for="RAL9005">Чёрный RAL9005</label>
+                </div>
+                <div>
+                    <input type="radio" id="RAL9010" name="color" value="Белый RAL9010"/>
+                    <label for="RAL9010">Белый RAL9010</label>
+                </div>
+                <div>
+                    <input type="radio" id="RAL9003" name="color" value="Белый RAL9003 (холодный белый)"/>
+                    <label for="RAL9003">Белый RAL9003 (холодный белый)</label>
+                </div>
+                <div>
+                    <input type="radio" id="custom-code" name="color" value="custom-code"/>
+                    <label for="custom-code">Указать код цвета вручную (RAL или NCS)</label>
+                    <br/>
+                    <input type="text" id="ral-ncs-code" name="ral-ncs-code"/>
+                </div>
+                <div>
+                    <input type="radio" id="b-metal" name="color" value="Чёрный (для металла)"/>
+                    <label for="b-metal">Чёрный (для металла)</label>
+                </div>
+                <div>
+                    <input type="radio" id="w-metal" name="color" value="Белый (для металла)"/>
+                    <label for="w-metal">Белый (для металла)</label>
+                </div>
+            </fieldset>
+        </li>
+    </ul>
+    <button name="back_button" id="back_button" onclick="buttonFunction()">В начало</button>
+    </form>
+    <button id="buttonAddMaterial">Далее</button>
   </body>
 </html>

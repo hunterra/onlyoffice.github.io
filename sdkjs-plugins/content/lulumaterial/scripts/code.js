@@ -8,14 +8,16 @@ var parts_left = 0;
         document.getElementById("myForm").onsubmit = function(formObject) {
             if(status=="general"){
                 var inp_elements = document.getElementsByTagName("input");
-                for (let inp of inp_elements){
+                console.log(inp_elements)
+                for (let inp in inp_elements){
+                    console.log(inp)
                     if (inp_elements[inp].checked){
                         parts_dict[inp_elements[inp].name]=[];
                     }
                 }
             }
             Asc.scope.parts=''
-            for (let part of parts_dict){
+            for (let part in parts_dict){
                 Asc.scope.parts =  Asc.scope.parts + part + " ";
             }
 

@@ -24,6 +24,7 @@
         document.getElementById("buttonAddMaterial").onclick = function() {
             console.log("button clicked");
             if(status=="general"){
+                Asc.scope.parts_dict={}
                 var inp_elements = document.getElementsByTagName("input");
                 for (let inp in inp_elements){
                     if (inp_elements[inp].checked && !exclude_array.includes(inp_elements[inp].name)){
@@ -33,20 +34,39 @@
                 parts_left=Object.keys(parts_dict).length;
                 console.log(parts_dict);
             }
+            if(status=="surface"){
+                var selected_radio_surface = document.querySelector('input[name="surface"]:checked').nextElementSibling.innerText;
+                var selected_radio_material = document.querySelector('input[name="material"]:checked').nextElementSibling.innerText;
+                var selected_radio_color = document.querySelector('input[name="color"]:checked')
+                if (selected_radio_color.id=="custom-code"){
+                    selected_radio_color = "RALNCSCODE" + document.getElementById("ral-ncs-code").value
+                }
+                else {
+                    selected_radio_color = selected_radio_color.nextElementSibling.innerText;
+                }
+                
+                if(selected_radio_material=="Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба"){
+                    selected_radio_material= "Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба (шпон 1,5 мм)"
+                }
+                
+                Asc.scope.parts_dict[part].push(selected_radio_surface,selected_radio_material,selected_radio_color);
+                parts_left=parts_left-1;
+            }
             if(parts_left>0){
                 var part=Object.keys(parts_dict)[0]
                 console.log(part)
                 document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part +"\"";
                 partSelectionForm.style.display = 'none';
                 partConfigurationForm.style.display = 'block';
-                parts_left=parts_left-1;
+                
                 delete parts_dict[part];
                 console.log(parts_dict);
                     
                 status="surface";
             }
             else{
-                console.log("no parts left")
+                console.log(Asc.scope.parts_dict);
+                this.executeCommand("close", "");
             }
 
             }

@@ -34,13 +34,13 @@
                 console.log(parts_left);
             }
             if(parts_left>0){
-                let part=parts_dict[0];
-                        console.log(part)
-                        document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part +"\"";
-                        partSelectionForm.style.display = 'none';
-                        partConfigurationForm.style.display = 'block';
-                        parts_left=parts_left-1;
-                        delete parts_dict.part;
+                var part=Object.keys(parts_dict)[0]
+                console.log(part)
+                document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part +"\"";
+                partSelectionForm.style.display = 'none';
+                partConfigurationForm.style.display = 'block';
+                parts_left=parts_left-1;
+                delete parts_dict.part;
                     
                     
                 status="surface";

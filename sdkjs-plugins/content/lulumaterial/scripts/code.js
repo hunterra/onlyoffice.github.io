@@ -3,6 +3,7 @@
         var parts_dict = {};
         var status="general";
         var parts_left = 0;
+        var part_name = '';
         
         var partSelectionForm = document.getElementById("partSelection");
         var partConfigurationForm = document.getElementById("partConfiguration");
@@ -49,15 +50,15 @@
                     selected_radio_material= "Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба (шпон 1,5 мм)"
                 }
                 
-                Asc.scope.parts_dict[part]=[selected_radio_surface,selected_radio_material,selected_radio_color];
+                Asc.scope.parts_dict[part_name]=[selected_radio_surface,selected_radio_material,selected_radio_color];
                 parts_left=parts_left-1;
             }
             if(parts_left>0){
-                var part=Object.keys(parts_dict)[0]
+                var part=Object.keys(parts_dict)[0];
                 document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part +"\"";
                 partSelectionForm.style.display = 'none';
                 partConfigurationForm.style.display = 'block';
-                
+                part_name = part;
                 delete parts_dict[part];
                     
                 status="surface";
@@ -70,10 +71,7 @@
                 ActiveCell.SetValue(Asc.scope.parts_dict);
                 }, true);
             }
-
             }
-            
-
         };
 
     

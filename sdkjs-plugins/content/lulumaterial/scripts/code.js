@@ -24,7 +24,7 @@
         document.getElementById("buttonAddMaterial").onclick = function() {
             console.log("button clicked");
             if(status=="general"){
-                Asc.scope.parts_dict={}
+                Asc.scope.parts_dict={};
                 var inp_elements = document.getElementsByTagName("input");
                 for (let inp in inp_elements){
                     if (inp_elements[inp].checked && !exclude_array.includes(inp_elements[inp].name)){
@@ -49,7 +49,7 @@
                     selected_radio_material= "Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба (шпон 1,5 мм)"
                 }
                 
-                Asc.scope.parts_dict[part].push(selected_radio_surface,selected_radio_material,selected_radio_color);
+                Asc.scope.parts_dict[part]=[selected_radio_surface,selected_radio_material,selected_radio_color];
                 parts_left=parts_left-1;
             }
             if(parts_left>0){

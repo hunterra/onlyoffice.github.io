@@ -31,7 +31,7 @@
                     }
                 }
                 parts_left=Object.keys(parts_dict).length;
-                console.log(parts_left);
+                console.log(parts_dict);
             }
             if(parts_left>0){
                 var part=Object.keys(parts_dict)[0]
@@ -40,8 +40,8 @@
                 partSelectionForm.style.display = 'none';
                 partConfigurationForm.style.display = 'block';
                 parts_left=parts_left-1;
-                delete parts_dict.part;
-                    
+                delete parts_dict[part];
+                console.log(parts_dict);
                     
                 status="surface";
             }

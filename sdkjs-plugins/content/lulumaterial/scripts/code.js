@@ -54,19 +54,21 @@
             }
             if(parts_left>0){
                 var part=Object.keys(parts_dict)[0]
-                console.log(part)
                 document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part +"\"";
                 partSelectionForm.style.display = 'none';
                 partConfigurationForm.style.display = 'block';
                 
                 delete parts_dict[part];
-                console.log(parts_dict);
                     
                 status="surface";
             }
             else{
                 console.log(Asc.scope.parts_dict);
-                this.executeCommand("close", "");
+                window.Asc.plugin.callCommand(function() {
+                var oWorksheet = Api.GetActiveSheet();
+                var ActiveCell = oWorksheet.ActiveCell;
+                ActiveCell.SetValue(Asc.scope.parts_dict);
+                }, true);
             }
 
             }

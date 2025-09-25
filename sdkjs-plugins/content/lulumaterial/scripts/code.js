@@ -69,7 +69,7 @@
                 for (let asc_part in Asc.scope.parts_dict){
                     Asc.scope.cell_val = Asc.scope.cell_val + asc_part + ": ";
                     for (let val in Asc.scope.parts_dict[asc_part]){
-                        Asc.scope.cell_val = Asc.scope.cell_val + val + ", ";
+                        Asc.scope.cell_val = Asc.scope.cell_val + Asc.scope.parts_dict[asc_part][val] + ", ";
                     }
                     Asc.scope.cell_val = Asc.scope.cell_val.slice(0, -2) + "\n";
                 }

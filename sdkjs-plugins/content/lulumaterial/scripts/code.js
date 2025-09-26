@@ -20,8 +20,55 @@
         var porolonDiv = document.getElementById("div-porolon");
         var metalDiv = document.getElementById("div-metal");
         
+        var natDubColor = document.getElementById("nat-dub");
+        var ralNcsCode = document.getElementById('ral-ncs-code');
+        
         var exclude_array = ["surface", "material", "color"];
         
+        var rad = document.getElementsByName("surface");
+        rad[0].onclick = function() {
+            mdfDiv.checked = true;
+            mdfDiv.style.display = 'block';
+            massivDiv.style.display = 'block';
+            mdfDubDiv.style.display = 'block';
+            if (part_name=="столешница"){
+                dopStolMaterialDiv.style.display = 'block';
+            }
+            massivBukaDiv.style.display = 'none';
+            mdfEmalDiv.style.display = 'none';
+            mdfLamDiv.style.display = 'none';
+            
+            porolonDiv.style.display = 'none';
+            metalDiv.style.display = 'none';
+        };
+        rad[1].onclick = function() {
+            mdfDiv.style.display = 'none';
+            massivDiv.style.display = 'none';
+            mdfDubDiv.style.display = 'none';
+            dopStolMaterialDiv.style.display = 'none';
+            
+            massivBukaDiv.style.display = 'block';
+            massivBukaDiv.checked = true;
+            mdfEmalDiv.style.display = 'block';
+            mdfLamDiv.style.display = 'block';
+            
+            porolonDiv.style.display = 'none';
+            metalDiv.style.display = 'none';
+        };
+        rad[2].onclick = function() {
+            mdfDiv.style.display = 'none';
+            massivDiv.style.display = 'none';
+            mdfDubDiv.style.display = 'none';
+            dopStolMaterialDiv.style.display = 'none';
+            
+            massivBukaDiv.style.display = 'none';
+            mdfEmalDiv.style.display = 'none';
+            mdfLamDiv.style.display = 'none';
+            
+            porolonDiv.style.display = 'block';
+            porolonDiv.checked = true;
+            metalDiv.style.display = 'block';
+        };
         document.getElementById("buttonAddMaterial").onclick = function() {
             console.log("button clicked");
             if(status=="general"){
@@ -55,10 +102,14 @@
             }
             if(parts_left>0){
                 var part=Object.keys(parts_dict)[0];
-                document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part +"\"";
+                part_name = part;
+                document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part_name +"\"";
                 partSelectionForm.style.display = 'none';
                 partConfigurationForm.style.display = 'block';
-                part_name = part;
+                natDubColor.checked = true;
+                ralNcsCode.value = '';
+                rad[0].click();
+                
                 delete parts_dict[part];
                     
                 status="surface";

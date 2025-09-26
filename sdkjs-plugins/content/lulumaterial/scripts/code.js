@@ -20,14 +20,22 @@
         var porolonDiv = document.getElementById("div-porolon");
         var metalDiv = document.getElementById("div-metal");
         
+        var mdfInp = document.getElementById("mdf");
+        var massivBukaInp = document.getElementById("massiv-buka");
+        var porolonInp = document.getElementById("porolon");
+        
         var natDubColor = document.getElementById("nat-dub");
         var ralNcsCode = document.getElementById('ral-ncs-code');
+        ralNcsCode.onclick = function() {
+                document.getElementById("custom-code").checked = true;
+            };
+
         
         var exclude_array = ["surface", "material", "color"];
         
         var rad = document.getElementsByName("surface");
         rad[0].onclick = function() {
-            mdfDiv.checked = true;
+            
             mdfDiv.style.display = 'block';
             massivDiv.style.display = 'block';
             mdfDubDiv.style.display = 'block';
@@ -40,6 +48,8 @@
             
             porolonDiv.style.display = 'none';
             metalDiv.style.display = 'none';
+            
+            mdfInp.checked = true;
         };
         rad[1].onclick = function() {
             mdfDiv.style.display = 'none';
@@ -48,12 +58,13 @@
             dopStolMaterialDiv.style.display = 'none';
             
             massivBukaDiv.style.display = 'block';
-            massivBukaDiv.checked = true;
             mdfEmalDiv.style.display = 'block';
             mdfLamDiv.style.display = 'block';
             
             porolonDiv.style.display = 'none';
             metalDiv.style.display = 'none';
+            
+            massivBukaInp.checked = true;
         };
         rad[2].onclick = function() {
             mdfDiv.style.display = 'none';
@@ -66,8 +77,9 @@
             mdfLamDiv.style.display = 'none';
             
             porolonDiv.style.display = 'block';
-            porolonDiv.checked = true;
             metalDiv.style.display = 'block';
+            
+            porolonInp.checked = true;
         };
         document.getElementById("buttonAddMaterial").onclick = function() {
             console.log("button clicked");
@@ -87,14 +99,14 @@
                 var selected_radio_material = document.querySelector('input[name="material"]:checked').nextElementSibling.innerText;
                 var selected_radio_color = document.querySelector('input[name="color"]:checked')
                 if (selected_radio_color.id=="custom-code"){
-                    selected_radio_color = "RALNCSCODE" + document.getElementById("ral-ncs-code").value
+                    selected_radio_color = "RALNCSCODE" + ralNcsCode.value;
                 }
                 else {
                     selected_radio_color = selected_radio_color.nextElementSibling.innerText;
                 }
                 
                 if(selected_radio_material=="Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба"){
-                    selected_radio_material= "Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба (шпон 1,5 мм)"
+                    selected_radio_material= "Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба (шпон 1,5 мм)";
                 }
                 
                 Asc.scope.parts_dict[part_name]=[selected_radio_surface,selected_radio_material,selected_radio_color];

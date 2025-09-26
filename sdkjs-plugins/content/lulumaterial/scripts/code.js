@@ -3,7 +3,7 @@
         var parts_dict = {};
         var status="general";
         var parts_left = 0;
-        var part_name = '';
+        var part_name = "";
         
         var partSelectionForm = document.getElementById("partSelection");
         var partConfigurationForm = document.getElementById("partConfiguration");
@@ -155,6 +155,7 @@
             Asc.scope.parts_dict = {};
             Asc.scope.cell_val = "";
             parts_left=0;
+            part_name = "";
         }
         };
 

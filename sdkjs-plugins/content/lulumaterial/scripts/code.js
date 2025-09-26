@@ -7,6 +7,8 @@
         
         var partSelectionForm = document.getElementById("partSelection");
         var partConfigurationForm = document.getElementById("partConfiguration");
+        
+        var backButton = document.getElementById("back_button");
 
         var mdfDiv = document.getElementById("div-mdf");
         var massivDiv = document.getElementById("div-massiv");
@@ -118,6 +120,7 @@
                 document.getElementById("p_legend").innerHTML="Конфигурация элемента  \""+part_name +"\"";
                 partSelectionForm.style.display = 'none';
                 partConfigurationForm.style.display = 'block';
+                backButton.style.display = 'block';
                 natDubColor.checked = true;
                 ralNcsCode.value = '';
                 rad[0].click();

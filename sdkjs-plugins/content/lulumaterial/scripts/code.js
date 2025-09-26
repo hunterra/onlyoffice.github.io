@@ -147,6 +147,7 @@
             }
             }
         document.getElementById("back_button").onclick = function() {
+            console.log("back button clicked");
             parts_dict = {};
             partSelectionForm.style.display = 'none';
             partConfigurationForm.style.display = 'block';

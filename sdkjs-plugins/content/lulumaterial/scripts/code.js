@@ -146,6 +146,16 @@
                 }, true);
             }
             }
+        document.getElementById("back_button").onclick = function() {
+            parts_dict = {};
+            partSelectionForm.style.display = 'none';
+            partConfigurationForm.style.display = 'block';
+            backButton.style.display = 'none';
+            status="general";
+            Asc.scope.parts_dict = {};
+            Asc.scope.cell_val = "";
+            parts_left=0;
+        }
         };
 
     

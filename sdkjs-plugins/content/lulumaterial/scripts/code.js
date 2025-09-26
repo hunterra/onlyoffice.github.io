@@ -22,10 +22,6 @@
         
         var natDubColor = document.getElementById("nat-dub");
         var ralNcsCode = document.getElementById('ral-ncs-code');
-        ralNcsCode.onclick = function() {
-                document.getElementById("custom-code").checked = true;
-              };
-            }
         
         var exclude_array = ["surface", "material", "color"];
         
@@ -91,14 +87,14 @@
                 var selected_radio_material = document.querySelector('input[name="material"]:checked').nextElementSibling.innerText;
                 var selected_radio_color = document.querySelector('input[name="color"]:checked')
                 if (selected_radio_color.id=="custom-code"){
-                    selected_radio_color = "RALNCSCODE" + ralNcsCode.value;
+                    selected_radio_color = "RALNCSCODE" + document.getElementById("ral-ncs-code").value
                 }
                 else {
                     selected_radio_color = selected_radio_color.nextElementSibling.innerText;
                 }
                 
                 if(selected_radio_material=="Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба"){
-                    selected_radio_material= "Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба (шпон 1,5 мм)";
+                    selected_radio_material= "Плита МДФ в обкладке из массива дуба, покрытая шпоном дуба (шпон 1,5 мм)"
                 }
                 
                 Asc.scope.parts_dict[part_name]=[selected_radio_surface,selected_radio_material,selected_radio_color];

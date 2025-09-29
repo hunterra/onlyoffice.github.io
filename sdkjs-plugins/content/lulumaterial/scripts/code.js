@@ -209,11 +209,11 @@
                         custom_color=true;
                         temp_value = value.replace("RALNCSCODE","");
                         Asc.scope.color_cell_val = Asc.scope.color_cell_val + color_dict[value].join(', ') + ' – ' + temp_value + '\n\n';
-                        Asc.scope.colorBoldCharList.push([Asc.scope.color_cell_val.length - temp_value.length,temp_value.length]);
+                        Asc.scope.colorBoldCharList.push([Asc.scope.color_cell_val.length - temp_value.length - 1,temp_value.length]);
                     }
                     else {
                         Asc.scope.color_cell_val = Asc.scope.color_cell_val + color_dict[value].join(', ') + ' – ' + value + '\n\n';
-                        Asc.scope.colorBoldCharList.push([Asc.scope.color_cell_val.length - value.length,value.length]);
+                        Asc.scope.colorBoldCharList.push([Asc.scope.color_cell_val.length - value.length - 1,value.length]);
                     }
                     });
                 
@@ -249,6 +249,8 @@
                         font = characters.GetFont();
                         font.SetBold(true);
                     });
+                    
+                    ActiveCell.AutoFit(false, true);
                 }, true);
             }
             }

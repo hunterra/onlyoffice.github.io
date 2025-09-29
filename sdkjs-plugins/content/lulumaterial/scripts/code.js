@@ -172,6 +172,7 @@
                 
                 Asc.scope.cell_val = "";
                 if(Object.keys(tree_dict).length>0){
+                    Asc.scope.boldCharList = [[0,30]];
                     Asc.scope.cell_val = "ПОВЕРХНОСТИ С ТЕКСТУРОЙ ДЕРЕВА\n\n";
                     Object.keys(tree_dict).forEach(function(value) {
                     var decap_value = value.substring(0,1).toLowerCase() + value.substring(1);
@@ -179,6 +180,7 @@
                     });
                 }
                 if(Object.keys(smooth_dict).length>0){
+                    Asc.scope.boldCharList.push([Asc.scope.cell_val.length,19]);
                     Asc.scope.cell_val = Asc.scope.cell_val + "ПОВЕРХНОСТИ ГЛАДКИЕ\n\n";
                     Object.keys(smooth_dict).forEach(function(value) {
                     var decap_value = value.substring(0,1).toLowerCase() + value.substring(1);
@@ -191,6 +193,7 @@
                     });
                 }
                 if(Object.keys(no_surf_dict).length>0){
+                    Asc.scope.boldCharList.push([Asc.scope.cell_val.length,9]);
                     Asc.scope.cell_val = Asc.scope.cell_val +  "ОСТАЛЬНОЕ\n\n";
                     Object.keys(no_surf_dict).forEach(function(value) {
                     var decap_value = value.substring(0,1).toLowerCase() + value.substring(1);
@@ -207,9 +210,18 @@
                 }
                 */
                 window.Asc.plugin.callCommand(function() {
+                    var redColor = Api.CreateColorFromRGB(255, 111, 61);
                     var oWorksheet = Api.GetActiveSheet();
                     var ActiveCell = oWorksheet.ActiveCell;
                     ActiveCell.SetValue(Asc.scope.cell_val);
+                    var characters = null;
+                    var font = null;
+                    Asc.scope.boldCharList.forEach(function(element, index, array) {
+                        characters = ActiveCell.GetCharacters(element[0], element[1]);
+                        font = characters.GetFont();
+                        font.SetBold(true);
+                        font.SetColor(redColor);
+                    });
                 }, true);
             }
             }

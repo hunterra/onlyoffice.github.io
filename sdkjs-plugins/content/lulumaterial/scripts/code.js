@@ -149,8 +149,8 @@
         document.getElementById("back_button").onclick = function() {
             console.log("back button clicked");
             parts_dict = {};
-            partSelectionForm.style.display = 'none';
-            partConfigurationForm.style.display = 'block';
+            partSelectionForm.style.display = 'block';
+            partConfigurationForm.style.display = 'none';
             backButton.style.display = 'none';
             status="general";
             Asc.scope.parts_dict = {};

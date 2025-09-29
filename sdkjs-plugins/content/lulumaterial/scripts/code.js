@@ -200,6 +200,25 @@
                     Asc.scope.cell_val = Asc.scope.cell_val + no_surf_dict[value].join(', ') + ' – ' + decap_value + '\n\n';
                     });
                 }
+                var custom_color=false;
+                var temp_value = "";
+                Asc.scope.color_cell_val = "";
+                Asc.scope.colorBoldCharList = [];
+                Object.keys(color_dict).forEach(function(value) {
+                    if(value.startsWith("RALNCSCODE")){
+                        custom_color=true;
+                        temp_value = value.replace("RALNCSCODE","");
+                        Asc.scope.color_cell_val = Asc.scope.color_cell_val + color_dict[value].join(', ') + ' – ' + temp_value + '\n\n';
+                        Asc.scope.colorBoldCharList.push([Asc.scope.color_cell_val.length - temp_value.length,temp_value.length]);
+                    }
+                    else {
+                        Asc.scope.color_cell_val = Asc.scope.color_cell_val + color_dict[value].join(', ') + ' – ' + value + '\n\n';
+                        Asc.scope.colorBoldCharList.push([Asc.scope.color_cell_val.length - value.length,value.length]);
+                    }
+                    });
+                
+                
+                
                 /*
                 for (let asc_part in Asc.scope.parts_dict){
                     Asc.scope.cell_val = Asc.scope.cell_val + asc_part + ": ";
@@ -221,6 +240,14 @@
                         font = characters.GetFont();
                         font.SetBold(true);
                         font.SetColor(redColor);
+                    });
+                    
+                    var ColorCell = oWorksheet.GetCells(ActiveCell.Row, ActiveCell.Col+2);
+                    ColorCell.SetValue(Asc.scope.color_cell_val);
+                    Asc.scope.colorBoldCharList.forEach(function(element, index, array) {
+                        characters = ActiveCell.GetCharacters(element[0], element[1]);
+                        font = characters.GetFont();
+                        font.SetBold(true);
                     });
                 }, true);
             }

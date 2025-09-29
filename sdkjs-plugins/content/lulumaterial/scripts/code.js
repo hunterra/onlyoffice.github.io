@@ -245,7 +245,7 @@
                     var ColorCell = oWorksheet.GetCells(ActiveCell.Row, ActiveCell.Col+2);
                     ColorCell.SetValue(Asc.scope.color_cell_val);
                     Asc.scope.colorBoldCharList.forEach(function(element, index, array) {
-                        characters = ActiveCell.GetCharacters(element[0], element[1]);
+                        characters = ColorCell.GetCharacters(element[0], element[1]);
                         font = characters.GetFont();
                         font.SetBold(true);
                     });

@@ -132,6 +132,72 @@
             else{
                 console.log(Asc.scope.parts_dict);
                 Asc.scope.cell_val = "";
+                var smooth_dict = {};
+                var tree_dict = {};
+                var no_surf_dict = {};
+                var color_dict = {};
+                Object.keys(Asc.scope.parts_dict).forEach(function(value) {
+                    var ar = Asc.scope.parts_dict[value];
+                    if(ar[0]=="Поверхности гладкие"){
+                        if(ar[1] in smooth_dict){
+                            smooth_dict[ar[1]].push(value);
+                        }
+                        else{
+                            smooth_dict[ar[1]]=[value];
+                        }
+                    }
+                    else if(ar[0]=="Поверхности со структурой дерева"){
+                        if(ar[1] in tree_dict){
+                            tree_dict[ar[1]].push(value);
+                        }
+                        else{
+                            tree_dict[ar[1]]=[value];
+                        }
+                    }
+                    else {
+                        if(ar[1] in no_surf_dict){
+                            no_surf_dict[ar[1]].push(value);
+                        }
+                        else{
+                            no_surf_dict[ar[1]]=[value];
+                        }
+                    }
+                    if(ar[2] in color_dict){
+                        color_dict[ar[2]].push(value);
+                    }
+                    else{
+                        color_dict[ar[2]]=[value];
+                    }
+                });
+                
+                Asc.scope.cell_val = "";
+                if(Object.keys(tree_dict).length>0){
+                    Asc.scope.cell_val = "ПОВЕРХНОСТИ С ТЕКСТУРОЙ ДЕРЕВА\n\n";
+                    Object.keys(tree_dict).forEach(function(value) {
+                    var decap_value = value.substring(0,1).toLowerCase() + value.substring(1);
+                    Asc.scope.cell_val = Asc.scope.cell_val + tree_dict[value].join(', ') + ' – ' + decap_value + '\n\n';
+                    });
+                }
+                if(Object.keys(smooth_dict).length>0){
+                    Asc.scope.cell_val = Asc.scope.cell_val + "ПОВЕРХНОСТИ ГЛАДКИЕ\n\n";
+                    Object.keys(smooth_dict).forEach(function(value) {
+                    var decap_value = value.substring(0,1).toLowerCase() + value.substring(1);
+                    var box_index = smooth_dict[value].indexOf('внутренние ящики')
+                    if(box_index>=0){
+                        smooth_dict[value].splice(box_index,1);
+                        smooth_dict[value].push('внутренние ящики');
+                    }
+                    Asc.scope.cell_val = Asc.scope.cell_val + smooth_dict[value].join(', ') + ' – ' + decap_value + '\n\n';
+                    });
+                }
+                if(Object.keys(no_surf_dict).length>0){
+                    Asc.scope.cell_val = Asc.scope.cell_val +  "ОСТАЛЬНОЕ\n\n";
+                    Object.keys(no_surf_dict).forEach(function(value) {
+                    var decap_value = value.substring(0,1).toLowerCase() + value.substring(1);
+                    Asc.scope.cell_val = Asc.scope.cell_val + no_surf_dict[value].join(', ') + ' – ' + decap_value + '\n\n';
+                    });
+                }
+                /*
                 for (let asc_part in Asc.scope.parts_dict){
                     Asc.scope.cell_val = Asc.scope.cell_val + asc_part + ": ";
                     for (let val in Asc.scope.parts_dict[asc_part]){
@@ -139,10 +205,11 @@
                     }
                     Asc.scope.cell_val = Asc.scope.cell_val.slice(0, -2) + "\n";
                 }
+                */
                 window.Asc.plugin.callCommand(function() {
-                var oWorksheet = Api.GetActiveSheet();
-                var ActiveCell = oWorksheet.ActiveCell;
-                ActiveCell.SetValue(Asc.scope.cell_val);
+                    var oWorksheet = Api.GetActiveSheet();
+                    var ActiveCell = oWorksheet.ActiveCell;
+                    ActiveCell.SetValue(Asc.scope.cell_val);
                 }, true);
             }
             }

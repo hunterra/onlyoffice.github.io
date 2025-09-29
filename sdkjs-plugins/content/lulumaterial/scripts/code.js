@@ -180,7 +180,7 @@
                     });
                 }
                 if(Object.keys(smooth_dict).length>0){
-                    Asc.scope.boldCharList.push([Asc.scope.cell_val.length,19]);
+                    Asc.scope.boldCharList.push([Asc.scope.cell_val.length,20]);
                     Asc.scope.cell_val = Asc.scope.cell_val + "ПОВЕРХНОСТИ ГЛАДКИЕ\n\n";
                     Object.keys(smooth_dict).forEach(function(value) {
                     var decap_value = value.substring(0,1).toLowerCase() + value.substring(1);
@@ -193,7 +193,7 @@
                     });
                 }
                 if(Object.keys(no_surf_dict).length>0){
-                    Asc.scope.boldCharList.push([Asc.scope.cell_val.length,9]);
+                    Asc.scope.boldCharList.push([Asc.scope.cell_val.length,10]);
                     Asc.scope.cell_val = Asc.scope.cell_val +  "ОСТАЛЬНОЕ\n\n";
                     Object.keys(no_surf_dict).forEach(function(value) {
                     var decap_value = value.substring(0,1).toLowerCase() + value.substring(1);
@@ -210,7 +210,7 @@
                 }
                 */
                 window.Asc.plugin.callCommand(function() {
-                    var redColor = Api.CreateColorFromRGB(255, 111, 61);
+                    var redColor = Api.CreateColorFromRGB(255, 0, 0);
                     var oWorksheet = Api.GetActiveSheet();
                     var ActiveCell = oWorksheet.ActiveCell;
                     ActiveCell.SetValue(Asc.scope.cell_val);

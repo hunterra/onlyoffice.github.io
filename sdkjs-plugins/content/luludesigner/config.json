@@ -55,6 +55,7 @@
             "isModal"         : true,
             "isInsideMode"    : false,
             "type"            : "window",
+            "size" : [800, 500],
 
             "initDataType"    : "",
             "initData"        : "",
